@@ -158,7 +158,7 @@ namespace Komorebi.OnScreen {
 			// add the widgets
 			add(embed);
 
-			initializeConfigFile(); 
+			initializeConfigFile();
 			signalsSetup();
 
 		}
@@ -171,9 +171,7 @@ namespace Komorebi.OnScreen {
 			screen.get_monitor_geometry (monitorIndex, out rectangle);
 
 			screenHeight = rectangle.height;
-			screenWidth = rectangle.width;
-
-			move(rectangle.x, rectangle.y);
+			screenWidth = rectangle.width;			
 
 		}
 
@@ -195,7 +193,7 @@ namespace Komorebi.OnScreen {
 						return false;
 
 					if(desktopIcons != null)
-						if(e.x >= desktopIcons.x && e.x <= (desktopIcons.x + desktopIcons.width) && 
+						if(e.x >= desktopIcons.x && e.x <= (desktopIcons.x + desktopIcons.width) &&
 							e.y >= desktopIcons.y && e.y <= (desktopIcons.y + desktopIcons.height))
 							return false;
 
@@ -280,7 +278,7 @@ namespace Komorebi.OnScreen {
 			setWallpaper();
 
 			if(desktopIcons != null) {
-			
+
 				if(!showDesktopIcons)
 					desktopIcons.fadeOut();
 				else
@@ -288,12 +286,12 @@ namespace Komorebi.OnScreen {
 			}
 
 			if(dateTimeVisible) {
-			
+
 				if(dateTimeAlwaysOnTop)
 					mainActor.set_child_above_sibling(dateTimeBox, assetActor);
 				else
 					mainActor.set_child_below_sibling(dateTimeBox, assetActor);
-				
+
 				dateTimeBox.setDateTime();
 
 			} else
@@ -318,11 +316,11 @@ namespace Komorebi.OnScreen {
 			} else {
 
 				wallpaperActor.scale_y = 1.00f;
-				wallpaperActor.scale_x = 1.00f;   
+				wallpaperActor.scale_x = 1.00f;
 			}
 
 			if(enableVideoWallpapers) {
-				
+
 				if(wallpaperType == "video") {
 
 					var videoPath = @"file:///System/Resources/Komorebi/$wallpaperName/$videoFileName";
@@ -332,9 +330,9 @@ namespace Komorebi.OnScreen {
 					wallpaperActor.set_content(videoContent);
 
 					return;
-				
+
 				} else {
-				
+
 					videoPlayback.playing = false;
 					videoPlayback.uri = "";
 				}
@@ -394,7 +392,7 @@ namespace Komorebi.OnScreen {
 			if(assetVisible)
 				assetActor.opacity = 255;
 			dateTimeBox.fadeIn(200);
-			
+
 			if(desktopIcons != null) {
 				if(!showDesktopIcons)
 					desktopIcons.fadeOut();
